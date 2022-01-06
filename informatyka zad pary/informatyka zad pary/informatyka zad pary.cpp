@@ -89,6 +89,44 @@ int main()
 
 	//	cout << liczby[i] << " - " << (parzysta ? "Parzysta" : "Nieparzysta") << "\n";
 
+ //4.2
+	 for (int i = 0; i < 100; i++)
+	 {
+		 string ciag = ciagi[i];
+		 string najdluzszy = "";
+		 string aktualnyCiag = "";
+
+		 aktualnyCiag += ciag[0];
+
+		 for (int j = 1; j < ciag.size(); j++)
+		 {
+			 if (ciag[j - 1] == ciag[j])
+			 {
+				 aktualnyCiag += ciag[j];
+			 }
+			 else
+			 {
+				 if (najdluzszy == "")
+				 {
+					 najdluzszy = aktualnyCiag;
+				 }
+				 else
+				 {
+					 if (aktualnyCiag.length() > najdluzszy.length())
+					 {
+						 najdluzszy = aktualnyCiag;
+					 }
+				 }
+
+				 aktualnyCiag = "";
+				 aktualnyCiag += ciag[j];
+			 }
+		 }
+
+	 	 cout << ciag << " - " << najdluzszy << " - " << najdluzszy.length() << "\n";
+	 }
+	
+	
 	return 0;
 }
 
